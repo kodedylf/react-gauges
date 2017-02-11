@@ -15,10 +15,10 @@ class Gauge extends React.Component {
   componentDidMount() {
     this.gauge = new JustGage({
       id: "gauge",
-      value: 50,
+      value: this.props.value,
       min: 0,
       max: 100,
-      title: "Hello"
+      title: this.props.title
     });
   }
   render() {
