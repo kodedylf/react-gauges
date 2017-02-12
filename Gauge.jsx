@@ -11,18 +11,25 @@ const style = {
   display: 'inline-block',
 };
 
+let lastId = 0;
+
 class Gauge extends React.Component {
+  componentWillMount() {
+    lastId++;
+    this.id = `gauge${lastId}`;  
+  }
   componentDidMount() {
     this.gauge = new JustGage({
-      id: "gauge",
+      id: this.id,
       value: this.props.value,
       min: 0,
       max: 100,
-      title: this.props.title
+      title: this.props.title,
+      titlePosition: "below"
     });
   }
   render() {
-    return (<Paper style={style}><div id="gauge" ref={(input) => { this.gauge = input; }} /></Paper>);
+    return (<Paper style={style}><div id={this.id} ref={(input) => { this.gauge = input; }} /></Paper>);
   }
 };
 
