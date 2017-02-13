@@ -19,17 +19,24 @@ class Gauge extends React.Component {
     this.id = `gauge${lastId}`;  
   }
   componentDidMount() {
-    this.gauge = new JustGage({
+    var justgageParms = {
       id: this.id,
       value: this.props.value,
-      min: 0,
-      max: 100,
+      decimals: this.props.decimals,
+      min: this.props.min,
+      max: this.props.max,
+      hideMinMax: this.props.hideMinMax,
       title: this.props.title,
-      titlePosition: "below"
-    });
+      titlePosition: "below",
+      noGradient: true
+    }
+    if (this.props.customSectors) {
+      justgageParms.customSectors = this.props.customSectors
+    }
+    this.gauge = new JustGage(justgageParms);
   }
   render() {
-    return (<Paper style={style}><div id={this.id} ref={(input) => { this.gauge = input; }} /></Paper>);
+    return (<Paper style={style}><div style={{marginTop:20}} id={this.id} ref={(input) => { this.gauge = input; }} /></Paper>);
   }
 };
 

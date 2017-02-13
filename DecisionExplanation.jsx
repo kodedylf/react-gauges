@@ -8,14 +8,14 @@ class DecisionExplanation extends React.Component {
 		this.state = { gauges: [] };
 	}
 	componentDidMount() {
-       fetch('http://localhost:56743/api/PurchaseApproval/1') 
+       fetch('http://localhost:24818/api/Gauges/f83c7219-677b-4544-aec4-7077680b9493') 
         .then(this.checkStatus)
 		.then(result=>result.json())
 		.then(json=>this.setState(json));
 	}
 	render() {
 		return (<div>
-				   {this.state.gauges.map(item=><Gauge key={item.id} title={item.title} value={item.value} />)}
+				   {this.state.gauges.map(item=><Gauge key={item.id} title={item.title} value={item.value} min={item.min} max={item.max} decimals={item.showNoOfDecimals} hideMinMax={!item.showMinMaxValues} customSectors={item.customSectors}/>)}
     			</div>);
 	}
 	checkStatus(response) {
