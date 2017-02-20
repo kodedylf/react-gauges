@@ -15,7 +15,7 @@ class DecisionExplanation extends React.Component {
 	}
 	render() {
 		return (<div>
-				   {this.state.gauges.map(item=><Gauge key={item.id} title={item.title} value={item.value} />)}
+				   {this.state.gauges.map(item=><Gauge key={item.id} title={item.title} value={item.value} min={item.min} max={item.max} hideMinMax={!item.showMinMaxValues} decimals={item.showNoOfDecimals} />)}
     			</div>);
 	}
 	checkStatus(response) {

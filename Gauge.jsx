@@ -22,14 +22,17 @@ class Gauge extends React.Component {
     this.gauge = new JustGage({
       id: this.id,
       value: this.props.value,
-      min: 0,
-      max: 100,
+      min: this.props.min,
+      max: this.props.max,
       title: this.props.title,
-      titlePosition: "below"
+      titlePosition: "below",
+      noGradient: true,
+      hideMinMax: this.props.hideMinMax,
+      decimals: this.props.decimals
     });
   }
   render() {
-    return (<Paper style={style}><div id={this.id} ref={(input) => { this.gauge = input; }} /></Paper>);
+    return (<Paper style={style}><div style={{marginTop: 20}} id={this.id} ref={(input) => { this.gauge = input; }} /></Paper>);
   }
 };
 

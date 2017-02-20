@@ -1,7 +1,7 @@
 {
-  "name": "react-es6-webpack",
+  "name": "react-gauges",
   "version": "1.0.0",
-  "description": "React test project",
+  "description": "Dashboard created with React, material-ui and justgage",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
