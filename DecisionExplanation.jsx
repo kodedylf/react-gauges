@@ -8,7 +8,7 @@ class DecisionExplanation extends React.Component {
 		this.state = { gauges: [] };
 	}
 	componentDidMount() {
-       fetch('http://localhost:24818/api/Gauges/f83c7219-677b-4544-aec4-7077680b9493') 
+       fetch(`http://localhost:24818/api/Gauges/${this.props.params.paId}`) 
         .then(this.checkStatus)
 		.then(result=>result.json())
 		.then(json=>this.setState(json));
