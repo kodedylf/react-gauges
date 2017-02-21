@@ -10,7 +10,7 @@ ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
-      <Route path="customer/:invid" component={Customer} />
+      <Route path="customer/:invId" component={Customer} />
       <Route path="purchaseapproval/:paId" component={DecisionExplanation} />
     </Route>
   </Router>
