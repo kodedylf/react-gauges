@@ -2,6 +2,7 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 import Paper from 'material-ui/Paper';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import DecisionAnswer from './DecisionAnswer';
 
 class Customer extends React.Component {
   constructor() {
@@ -30,7 +31,7 @@ class Customer extends React.Component {
                     <TableRow key={item.RequestId}>
                       <TableRowColumn>{item.Address}</TableRowColumn>
                       <TableRowColumn>{item.PurchasePrice}</TableRowColumn>
-                      <TableRowColumn>{item.Decision}</TableRowColumn>
+                      <TableRowColumn><DecisionAnswer answer={item.Decision} /></TableRowColumn>
                     </TableRow>
                   )}
                 </TableBody>
