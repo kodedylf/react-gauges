@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
@@ -24,7 +25,9 @@ class Home extends React.Component {
   render() {
     return (<Paper style={{marginTop: '280px'}}>
               <TextField hintText="Kundenummer" onChange={this.handleInvIdChange.bind(this)} style={{margin: 12, width: '725px'}} />
-              <FlatButton backgroundColor="#a4c639" hoverColor="#8AA62F" icon={<ActionSearch color={fullWhite} />} style={{margin: 12}} />
+              <Link to={`/customer/${this.state.invId}`}>
+                <FlatButton backgroundColor="#a4c639" hoverColor="#8AA62F" icon={<ActionSearch color={fullWhite} />} style={{margin: 12}} />
+               </Link>
             </Paper>);
   }
 };
