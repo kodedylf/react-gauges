@@ -24,7 +24,7 @@ class Home extends React.Component {
 
   render() {
     return (<Paper style={{marginTop: '280px'}}>
-              <TextField hintText="Kundenummer" onChange={this.handleInvIdChange.bind(this)} style={{margin: 12, width: '725px'}} />
+              <TextField hintText="CPR-nummer" onChange={this.handleInvIdChange.bind(this)} style={{margin: 12, width: '725px'}} />
               <Link to={`/customer/${this.state.invId}`}>
                 <FlatButton backgroundColor="#a4c639" hoverColor="#8AA62F" icon={<ActionSearch color={fullWhite} />} style={{margin: 12}} />
               </Link>

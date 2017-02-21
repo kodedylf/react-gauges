@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import Paper from 'material-ui/Paper';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
@@ -16,7 +17,7 @@ class Customer extends React.Component {
   render() {
     return (<div>
               <Paper>
-              <Table>
+              <Table onRowSelection={this._onRowSelection.bind(this)}>
                 <TableHeader displaySelectAll={false} adjustForCheckbox={false} >
                   <TableRow>
                     <TableHeaderColumn>Adresse</TableHeaderColumn>
@@ -36,6 +37,9 @@ class Customer extends React.Component {
               </Table>
               </Paper>
             </div>);
+  }
+  _onRowSelection(key) {
+    this.props.router.push(`/purchaseapproval/${this.state.purchaseApprovals[key].RequestId}`);
   }
   checkStatus(response) {
       if (response.status >= 200 && response.status < 300) {
