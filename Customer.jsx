@@ -3,20 +3,22 @@ import { browserHistory } from 'react-router';
 import Paper from 'material-ui/Paper';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import DecisionAnswer from './DecisionAnswer';
+import CustomerInfo from './CustomerInfo';
 
 class Customer extends React.Component {
   constructor() {
     super();
-    this.state = { purchaseApprovals: [] };
+    this.state = { customer: {}, purchaseApprovals: [] };
   }
   componentDidMount() {
     fetch(`http://localhost:24818/api/PurchaseApproval/${this.props.params.invId}`) 
     .then(this.checkStatus)
     .then(result=>result.json())
-    .then(json=>this.setState( { purchaseApprovals: json } ));
+    .then(json=>this.setState(json));
   }
   render() {
     return (<div>
+              <CustomerInfo customer={this.state.customer} />
               <Paper>
               <Table onRowSelection={this._onRowSelection.bind(this)}>
                 <TableHeader displaySelectAll={false} adjustForCheckbox={false} >
@@ -31,7 +33,7 @@ class Customer extends React.Component {
                     <TableRow key={item.RequestId}>
                       <TableRowColumn>{item.Address}</TableRowColumn>
                       <TableRowColumn>{item.PurchasePrice}</TableRowColumn>
-                      <TableRowColumn><DecisionAnswer answer={item.Decision} /></TableRowColumn>
+                      <TableRowColumn><DecisionAnswer answer={item.Decision} noOfConditions={item.Reasons.length} /></TableRowColumn>
                     </TableRow>
                   )}
                 </TableBody>
