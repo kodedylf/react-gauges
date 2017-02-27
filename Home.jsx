@@ -22,12 +22,16 @@ class Home extends React.Component {
     this.setState({ invId: event.target.value });
   }
 
+  handleSubmit() {
+    this.props.router.push(`/customer/${this.state.invId}`);
+  }
+
   render() {
     return (<Paper style={{marginTop: '280px'}}>
-              <TextField hintText="CPR-nummer" onChange={this.handleInvIdChange.bind(this)} style={{margin: 12, width: '725px'}} />
-              <Link to={`/customer/${this.state.invId}`}>
+              <form onSubmit={this.handleSubmit.bind(this)}>
+                <TextField hintText="CPR-nummer" onChange={this.handleInvIdChange.bind(this)} style={{margin: 12, width: '725px'}} />
                 <FlatButton backgroundColor="#a4c639" hoverColor="#8AA62F" icon={<ActionSearch color={fullWhite} />} style={{margin: 12}} />
-              </Link>
+               </form>
             </Paper>);
   }
 };
