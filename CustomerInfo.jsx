@@ -9,7 +9,7 @@ class CustomerInfo extends React.Component {
 				    {this.props.customer.name}
 		          </Paper>
 		          <Paper style={{ padding: 24, marginBottom: 20 }}>
-	                <Checkbox label="Skattesamtykke" labelPosition="left" disabled={true} checked={!this.props.customer.isTaxConsentNeeded} />
+	                <Checkbox label="Skattesamtykke" labelPosition="left" disabled={false} checked={!this.props.customer.isTaxConsentNeeded} />
 		          </Paper>
 		        </div>
 		        );

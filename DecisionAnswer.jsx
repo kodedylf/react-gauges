@@ -17,7 +17,7 @@ class DecisionAnswer extends React.Component {
 				return (<NavigationCancel color="#ff0000" style={ noBadgeIconStyle } />);
 			case "YesWithConditions":
 			    return (<Badge badgeContent={this.props.noOfConditions} primary={true} badgeStyle={{ top: 12, right: 12 }}><ActionCheckCircle color="#a9d70b" style={badgeIconStyle} /></Badge>);
-			case "WrongChannel":
+			case "ChannelNo":
 			    return (<ActionInfo color="#75bcff" style={ noBadgeIconStyle } />);
 		}
 		return(<div></div>);
